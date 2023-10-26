@@ -1,0 +1,35 @@
+{
+  "name": "oauth-2.0-server",
+  "version": "1.0.0",
+  "description": "A fast, secure, and modern OAuth-2.0 server.",
+  "main": "oath-server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cvs0/OAuth-2.0-Server.git"
+  },
+  "keywords": [
+    "oauth",
+    "security",
+    "typescript",
+    "node",
+    "js",
+    "auth",
+    "server"
+  ],
+  "author": "cvs0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cvs0/OAuth-2.0-Server/issues"
+  },
+  "homepage": "https://github.com/cvs0/OAuth-2.0-Server#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "oauth2orize": "^1.12.0",
+    "passport": "^0.6.0",
+    "passport-oauth2": "^1.7.0"
+  }
+}
