@@ -2,7 +2,7 @@
   "name": "oauth-2.0-server",
   "version": "1.0.0",
   "description": "A fast, secure, and modern OAuth-2.0 server.",
-  "main": "oath-server.ts",
+  "main": "oauth-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

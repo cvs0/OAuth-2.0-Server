@@ -1,26 +1,18 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const oauth2orize = require('oauth2orize');
 const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-const app = express();
-
-app.use(bodyParser.urlencoded({ extended: true }));
-
-const server = oauth2orize.createServer();
-
-app.use(passport.initialize());
-
-app.get('/authorize',
-  (req, res) => {
+passport.use(new GoogleStrategy({
+    clientID: 'YOUR_GOOGLE_CLIENT_ID',
+    clientSecret: 'YOUR_GOOGLE_CLIENT_SECRET',
+    callbackURL: '/auth/google/callback',
+  },
+  (accessToken, refreshToken, profile, done) => {
+    return done(null, profile);
   }
-);
+));
 
-app.post('/token',
-  (req, res) => {
-  }
-);
-
-app.listen(3000, () => {
-  console.log('OAuth server is running on port 3000');
-});
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+app.get('/auth/google/callback', passport.authenticate('google', {
+  successRedirect: '/dashboard',
+  failureRedirect: '/login',
+}));
